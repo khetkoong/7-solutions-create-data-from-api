@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package filterData;
+
+service FilterData {
+  rpc GetFilterData (FilterDataRequest) returns (FilterDataReply) {}
+}
+
+message FilterDataRequest {
+  string name = 1;
+}
+
+message FilterDataReply {
+  string message = 1;
+}

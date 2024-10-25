@@ -1,0 +1,29 @@
+{
+  "name": "create-data-from-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "server": "tsc && node dist/server.js",
+    "start": "node dist/client.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.8.0",
+    "@grpc/grpc-js-xds": "^1.8.0",
+    "@grpc/proto-loader": "^0.6.0",
+    "async": "^1.5.2",
+    "google-protobuf": "^3.0.0",
+    "lodash": "^4.17.21",
+    "minimist": "^1.2.0",
+    "protoc-gen-ts": "^0.8.7",
+    "ts-protoc-gen": "^0.15.0"
+  },
+  "devDependencies": {
+    "ts-proto": "^2.2.5",
+    "typescript": "^5.6.3"
+  }
+}
