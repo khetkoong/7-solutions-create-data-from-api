@@ -9,7 +9,7 @@ async function getFilterData(
   callback: sendUnaryData<FilterDataReply>
 ) {
   const users = await getUsers()
-  callback(null, { message: JSON.stringify(users, null, 2) as unknown as string })
+  callback(null, { result: JSON.stringify(users, null, 2) as unknown as string })
 }
 
 

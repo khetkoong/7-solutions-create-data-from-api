@@ -47,7 +47,7 @@ function getFilterData(call, callback) {
                 case 0: return [4 /*yield*/, (0, func_1.getUsers)()];
                 case 1:
                     users = _a.sent();
-                    callback(null, { message: JSON.stringify(users, null, 2) });
+                    callback(null, { result: JSON.stringify(users, null, 2) });
                     return [2 /*return*/];
             }
         });

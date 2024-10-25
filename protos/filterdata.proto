@@ -6,10 +6,8 @@ service FilterData {
   rpc GetFilterData (FilterDataRequest) returns (FilterDataReply) {}
 }
 
-message FilterDataRequest {
-  string name = 1;
-}
+message FilterDataRequest {}
 
 message FilterDataReply {
-  string message = 1;
+  string result = 1;
 }

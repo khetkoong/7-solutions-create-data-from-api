@@ -22,22 +22,18 @@ import {
 export const protobufPackage = "filterData";
 
 export interface FilterDataRequest {
-  name: string;
 }
 
 export interface FilterDataReply {
-  message: string;
+  result: string;
 }
 
 function createBaseFilterDataRequest(): FilterDataRequest {
-  return { name: "" };
+  return {};
 }
 
 export const FilterDataRequest: MessageFns<FilterDataRequest> = {
-  encode(message: FilterDataRequest, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
-    if (message.name !== "") {
-      writer.uint32(10).string(message.name);
-    }
+  encode(_: FilterDataRequest, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
     return writer;
   },
 
@@ -48,14 +44,6 @@ export const FilterDataRequest: MessageFns<FilterDataRequest> = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-        case 1: {
-          if (tag !== 10) {
-            break;
-          }
-
-          message.name = reader.string();
-          continue;
-        }
       }
       if ((tag & 7) === 4 || tag === 0) {
         break;
@@ -65,36 +53,32 @@ export const FilterDataRequest: MessageFns<FilterDataRequest> = {
     return message;
   },
 
-  fromJSON(object: any): FilterDataRequest {
-    return { name: isSet(object.name) ? globalThis.String(object.name) : "" };
+  fromJSON(_: any): FilterDataRequest {
+    return {};
   },
 
-  toJSON(message: FilterDataRequest): unknown {
+  toJSON(_: FilterDataRequest): unknown {
     const obj: any = {};
-    if (message.name !== "") {
-      obj.name = message.name;
-    }
     return obj;
   },
 
   create<I extends Exact<DeepPartial<FilterDataRequest>, I>>(base?: I): FilterDataRequest {
     return FilterDataRequest.fromPartial(base ?? ({} as any));
   },
-  fromPartial<I extends Exact<DeepPartial<FilterDataRequest>, I>>(object: I): FilterDataRequest {
+  fromPartial<I extends Exact<DeepPartial<FilterDataRequest>, I>>(_: I): FilterDataRequest {
     const message = createBaseFilterDataRequest();
-    message.name = object.name ?? "";
     return message;
   },
 };
 
 function createBaseFilterDataReply(): FilterDataReply {
-  return { message: "" };
+  return { result: "" };
 }
 
 export const FilterDataReply: MessageFns<FilterDataReply> = {
   encode(message: FilterDataReply, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
-    if (message.message !== "") {
-      writer.uint32(10).string(message.message);
+    if (message.result !== "") {
+      writer.uint32(10).string(message.result);
     }
     return writer;
   },
@@ -111,7 +95,7 @@ export const FilterDataReply: MessageFns<FilterDataReply> = {
             break;
           }
 
-          message.message = reader.string();
+          message.result = reader.string();
           continue;
         }
       }
@@ -124,13 +108,13 @@ export const FilterDataReply: MessageFns<FilterDataReply> = {
   },
 
   fromJSON(object: any): FilterDataReply {
-    return { message: isSet(object.message) ? globalThis.String(object.message) : "" };
+    return { result: isSet(object.result) ? globalThis.String(object.result) : "" };
   },
 
   toJSON(message: FilterDataReply): unknown {
     const obj: any = {};
-    if (message.message !== "") {
-      obj.message = message.message;
+    if (message.result !== "") {
+      obj.result = message.result;
     }
     return obj;
   },
@@ -140,7 +124,7 @@ export const FilterDataReply: MessageFns<FilterDataReply> = {
   },
   fromPartial<I extends Exact<DeepPartial<FilterDataReply>, I>>(object: I): FilterDataReply {
     const message = createBaseFilterDataReply();
-    message.message = object.message ?? "";
+    message.result = object.result ?? "";
     return message;
   },
 };

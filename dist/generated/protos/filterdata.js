@@ -11,14 +11,11 @@ var wire_1 = require("@bufbuild/protobuf/wire");
 var grpc_js_1 = require("@grpc/grpc-js");
 exports.protobufPackage = "filterData";
 function createBaseFilterDataRequest() {
-    return { name: "" };
+    return {};
 }
 exports.FilterDataRequest = {
-    encode: function (message, writer) {
+    encode: function (_, writer) {
         if (writer === void 0) { writer = new wire_1.BinaryWriter(); }
-        if (message.name !== "") {
-            writer.uint32(10).string(message.name);
-        }
         return writer;
     },
     decode: function (input, length) {
@@ -28,13 +25,6 @@ exports.FilterDataRequest = {
         while (reader.pos < end) {
             var tag = reader.uint32();
             switch (tag >>> 3) {
-                case 1: {
-                    if (tag !== 10) {
-                        break;
-                    }
-                    message.name = reader.string();
-                    continue;
-                }
             }
             if ((tag & 7) === 4 || tag === 0) {
                 break;
@@ -43,34 +33,29 @@ exports.FilterDataRequest = {
         }
         return message;
     },
-    fromJSON: function (object) {
-        return { name: isSet(object.name) ? globalThis.String(object.name) : "" };
+    fromJSON: function (_) {
+        return {};
     },
-    toJSON: function (message) {
+    toJSON: function (_) {
         var obj = {};
-        if (message.name !== "") {
-            obj.name = message.name;
-        }
         return obj;
     },
     create: function (base) {
         return exports.FilterDataRequest.fromPartial(base !== null && base !== void 0 ? base : {});
     },
-    fromPartial: function (object) {
-        var _a;
+    fromPartial: function (_) {
         var message = createBaseFilterDataRequest();
-        message.name = (_a = object.name) !== null && _a !== void 0 ? _a : "";
         return message;
     },
 };
 function createBaseFilterDataReply() {
-    return { message: "" };
+    return { result: "" };
 }
 exports.FilterDataReply = {
     encode: function (message, writer) {
         if (writer === void 0) { writer = new wire_1.BinaryWriter(); }
-        if (message.message !== "") {
-            writer.uint32(10).string(message.message);
+        if (message.result !== "") {
+            writer.uint32(10).string(message.result);
         }
         return writer;
     },
@@ -85,7 +70,7 @@ exports.FilterDataReply = {
                     if (tag !== 10) {
                         break;
                     }
-                    message.message = reader.string();
+                    message.result = reader.string();
                     continue;
                 }
             }
@@ -97,12 +82,12 @@ exports.FilterDataReply = {
         return message;
     },
     fromJSON: function (object) {
-        return { message: isSet(object.message) ? globalThis.String(object.message) : "" };
+        return { result: isSet(object.result) ? globalThis.String(object.result) : "" };
     },
     toJSON: function (message) {
         var obj = {};
-        if (message.message !== "") {
-            obj.message = message.message;
+        if (message.result !== "") {
+            obj.result = message.result;
         }
         return obj;
     },
@@ -112,7 +97,7 @@ exports.FilterDataReply = {
     fromPartial: function (object) {
         var _a;
         var message = createBaseFilterDataReply();
-        message.message = (_a = object.message) !== null && _a !== void 0 ? _a : "";
+        message.result = (_a = object.result) !== null && _a !== void 0 ? _a : "";
         return message;
     },
 };
